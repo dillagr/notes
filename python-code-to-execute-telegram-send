@@ -1,0 +1,9 @@
+##import telegram library
+##requires: pip install python-telegram-bot
+import telegram
+
+##define bot parameters
+bot = telegram.Bot(token='chat-with-bot-father-to-get-your-token')
+
+##now send the chat
+bot.sendMessage(chat_id='put-chat-id-here',text='some-text-message')
