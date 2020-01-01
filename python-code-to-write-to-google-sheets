@@ -1,0 +1,12 @@
+##import the library, for service account
+from oauth2client.service_account import ServiceAccountCredentials
+
+##import gspread library (google sheets)
+import gspread
+
+##login and open the target sheet
+##make sure to download the credentials json from google-sheets -> gsheet-auth.json
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']
+credentials = ServiceAccountCredentials.from_json_keyfile_name('gsheet-auth.json', scope)
+gc = gspread.authorize(credentials)
