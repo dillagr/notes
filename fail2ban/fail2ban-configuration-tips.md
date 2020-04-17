@@ -1,6 +1,7 @@
-## _fail2ban_ configuration tips
+## _fail2ban_ Configuration Tips
+fail2ban will work out-of-the-box even without these modifications.
 
-### _TIP#1_: ignoreip
+### _TIP #1_: ignoreip
 Whitelist your own IP address. This is probably a *no-brainer*.
 ~~~
 file: /etc/fail2ban/jail.conf
@@ -13,7 +14,7 @@ curl ifconfig.co
 ~~~
 
 
-### _TIP#2_: dbfile
+### _TIP #2_: dbfile
 If you don't want to track bans across reboots or service restarts, change dbfile to *None*
 ~~~
 file: /etc/fail2ban/fail2ban.conf
