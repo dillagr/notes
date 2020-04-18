@@ -9,3 +9,16 @@ When confident that the test results work, apply configuration:
 ~~~
 sudo fail2ban-client reload
 ~~~
+
+## _fail2ban_: Verify configuration
+Check running jails.
+~~~
+sudo fail2ban-client status
+~~~
+
+## _fail2ban_: Jail details
+To check a particular jail (e.g. ssh)
+
+~~~
+sudo fail2ban-client status sshd
+~~~
