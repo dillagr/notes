@@ -1,6 +1,6 @@
 //
 // file: /etc/apt/apt.conf.d/50unattended-upgrades
-// use: wget -O /etc/apt/apt.conf.d/50unattended-upgrades https://github.com/dillagr/notes/raw/master/unattended/50unattended-upgrades
+// use: wget -O 50unattended-upgrades https://github.com/dillagr/notes/raw/master/unattended/50unattended-upgrades
 //
 // Automatically upgrade packages from these (origin:archive) pairs
 Unattended-Upgrade::Allowed-Origins {
@@ -11,7 +11,7 @@ Unattended-Upgrade::Allowed-Origins {
         // available, the policy for updates is such that unattended-upgrades
         // should also install from here by default.
         "${distro_id}ESM:${distro_codename}";
-        "${distro_id}:${distro_codename}-updates";
+//      "${distro_id}:${distro_codename}-updates";
 //      "${distro_id}:${distro_codename}-proposed";
 //      "${distro_id}:${distro_codename}-backports";
 };
