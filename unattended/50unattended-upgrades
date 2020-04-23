@@ -1,6 +1,6 @@
 //
 // file: /etc/apt/apt.conf.d/50unattended-upgrades
-// use: wget -O 50unattended-upgrades https://github.com/dillagr/notes/raw/master/unattended/50unattended-upgrades
+// use: wget -O 50unattended-upgrades https://raw.githubusercontent.com/dillagr/notes/master/unattended/50unattended-upgrades
 //
 // Automatically upgrade packages from these (origin:archive) pairs
 Unattended-Upgrade::Allowed-Origins {
