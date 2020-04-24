@@ -10,7 +10,7 @@ ignoreip = 127.0.0.1/8 [YOUR IP ADDRESS]
 Retrieve your IP address by running either of these commands on the terminal:
 ~~~
 curl icanhazip.com
-curl ifconfig.co
+curl ifconfig.co/ip
 ~~~
 
 
