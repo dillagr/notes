@@ -1,0 +1,21 @@
+[Unit]
+Description=Jupyter Notebook
+
+# --------- customize between these lines
+#   * Replace: user (with your username)
+#   * Working directory correct?
+#   * ExecStart correct?
+[Service]
+ExecStart=/home/user/miniconda3/bin/jupyter notebook
+User=user
+Group=user
+WorkingDirectory=/home/user
+# --------- customize between these lines
+Type=simple
+PIDFile=/run/jupyter.pid
+Restart=always
+RestartSec=10
+#KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
