@@ -1,0 +1,27 @@
+#
+# NOTES:
+# * rename this file to .screenrc, if not already .screenrc
+# * and place in your home directory
+#
+# CREDITS: http://www.pimp-my-rig.com
+#
+
+## re-read aliases
+shell -$SHELL
+
+## status on last line
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%Y-%m-%d %{W}%c %{g}]'
+defscrollback 1024
+
+## change escape key from CTRL+A to CTRL+G
+escape ^gg
+
+## resize according to window
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+## most likely your edits or customizations will start below this line
+
+## initialize with 2 screens, change the tab-title first-tab
+screen -t first-tab 0
+screen -t second-tab 1

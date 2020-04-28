@@ -1,0 +1,32 @@
+" **********
+" on Ubuntu, place this file in
+"  /etc/vim/vimrc.local
+" use: wget -O vimrc.local https://github.com/dillagr/notes/raw/master/vimrc.local
+"
+
+" syntax highlighting
+syntax enable
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+
+" color-scheme, from default set only
+colorscheme slate
+
+" tab-stops, 4-spaces
+set tabstop=4
+set softtabstop=4
+set expandtab
+"set autoindent
+
+" puts a line where edits are done
+set cursorline
+
+" shows the current active CMD at the bottom
+set showcmd
+
+" search highlights
+set showmatch
+set wildmenu
+set incsearch
+set hlsearch
