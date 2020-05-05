@@ -29,8 +29,8 @@ sudo ufw allow 443/tcp
 
 ## _Allow Incoming SSH from Specific IP Address or Subnet_
 ~~~
-sudo ufw allow from 10.1.1.0/24 to any port 22/tcp
-sudo ufw allow from [SUBNET/CIDR] to any port 22/tcp
+sudo ufw allow from 10.1.1.0/24 to any port 22
+sudo ufw allow from [SUBNET/CIDR] to any port 22
 ~~~
 
 ## _Check UFW Rules_
