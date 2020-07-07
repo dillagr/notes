@@ -2,6 +2,11 @@
 # import pandas as pd
 # import os
 
+## NOTES:
+## this aims to count unique values for every column in the dataframe
+## uses the column as index, so need to write it with index=True
+## uses pipe as separator or delimiter
+
 sample_df = pd.DataFrame()
 
 for col in df.columns.to_list():
@@ -16,6 +21,6 @@ for col in df.columns.to_list():
     sample_df = pd.DataFrame(df[col].value_counts())
     sample_df.columns = ["count"]
     sample_df.index.name = col
-    sample_df.to_csv(sample_obj, index=True, sep="|", quoting=csv.QUOTE_NONE)
+    sample_df.to_csv(sample_obj, index=True, sep="|", quoting=csv.QUOTE_MINIMAL)
     ## QUOTE_MINIMAL, QUOTE_ALL, QUOTE_NONE, and QUOTE_NONNUMERIC
     
