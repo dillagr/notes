@@ -21,6 +21,6 @@ for col in df.columns.to_list():
     sample_df = pd.DataFrame(df[col].value_counts())
     sample_df.columns = ["count"]
     sample_df.index.name = col
-    sample_df.to_csv(sample_obj, index=True, sep="|", quoting=csv.QUOTE_MINIMAL)
+    sample_df.to_csv(sample_obj, index=True, sep="|", quoting=csv.QUOTE_MINIMAL, escapechar="\\")
     ## QUOTE_MINIMAL, QUOTE_ALL, QUOTE_NONE, and QUOTE_NONNUMERIC
     
