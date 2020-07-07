@@ -1,6 +1,7 @@
 ## requires: import libraries
 # import pandas as pd
 # import os
+# import csv
 
 ## NOTES:
 ## this aims to count unique values for every column in the dataframe
