@@ -26,4 +26,6 @@ Feel free to change "QoS" to a name that is easy to recall or meaningful.
 
 ## _Download_
 
-The file is here: [DSCP.ps1](DSCP.ps1)
+The power shell file is here:  [DSCP.ps1](DSCP.ps1)
+
+Make sure the path to the locally downloaded file matches that of the above trigger.
