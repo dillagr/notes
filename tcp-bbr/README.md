@@ -20,7 +20,7 @@ Configure the system to default to tcp_bbr:
    https://github.com/dillagr/notes/raw/master/tcp-bbr/99-tcp-bbr.conf
    ```
 
-This change requires a reboot (unless the kernel required has been installed already). After reboot, execute the command below to see that bbr is the congestion control algorithm used.
+This change requires a reboot (unless the kernel required has been installed already). After reboot, execute the command(s) below to see that **bbr** is the congestion control algorithm used. The algorithm **bbr** needs to be working in tandem with **fq**
 
    ```
    sysctl -a | grep qdisc
@@ -28,4 +28,8 @@ This change requires a reboot (unless the kernel required has been installed alr
    ```
 
 You should be able to see the configuration changes from the files downloaded.
+
+## _Relevant links_
+
+[net.core.default_qdisc](https://sysctl-explorer.net/net/core/default_qdisc/)
 
