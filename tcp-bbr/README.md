@@ -33,3 +33,6 @@ You should be able to see the configuration changes from the files downloaded.
 
 [net.core.default_qdisc](https://sysctl-explorer.net/net/core/default_qdisc/)
 
+   ```
+   fq ==> should be the desired value if bbr is used.
+   ```
