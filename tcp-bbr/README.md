@@ -35,8 +35,8 @@ You should be able to see the configuration changes from the files downloaded.
 Increase TCP backlog limits (from default value of 128 to 4096):
 
    ```
-   sudo wget -O /etc/sysctl.d/98-somaxconn.conf \
-   https://github.com/dillagr/notes/raw/master/tcp-bbr/98-somaxconn.conf
+   sudo wget -O /etc/sysctl.d/98-net-somaxconn.conf \
+   https://github.com/dillagr/notes/raw/master/tcp-bbr/98-net-somaxconn.conf
    ```
 
 ## _Relevant links_
