@@ -29,6 +29,16 @@ This change requires a reboot (unless the kernel required has been installed alr
 
 You should be able to see the configuration changes from the files downloaded.
 
+
+## _Additional Tweak_
+
+Increase TCP backlog limits (from default value of 128 to 4096):
+
+   ```
+   sudo wget -O /etc/sysctl.d/98-somaxconn.conf \
+   https://github.com/dillagr/notes/raw/master/tcp-bbr/98-somaxconn.conf
+   ```
+
 ## _Relevant links_
 
 [net.core.default_qdisc](https://sysctl-explorer.net/net/core/default_qdisc/)
