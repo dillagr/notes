@@ -1,0 +1,16 @@
+// Generate a List of Months based on a Start-Date and End-Date
+List.Generate(
+    () => _ArbitraryStartDate,
+    each _ <= _ArbitraryEndDate,
+    each Date.AddMonths(_, 1)
+))
+
+
+// Generate a List of Dates based on a Start-Date and End-Date
+// NOTE! #duration(days, hours, minutes, seconds)
+List.Generate(
+    () => _ArbitraryStartDate,
+    each _ <= _ArbitraryEndDate,
+    each #duration(1, 0, 0, 0)
+))
+
