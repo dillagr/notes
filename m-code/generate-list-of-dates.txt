@@ -11,6 +11,13 @@ List.Generate(
 List.Generate(
     () => _ArbitraryStartDate,
     each _ <= _ArbitraryEndDate,
-    each #duration(1, 0, 0, 0)
+    each Date.AddDays(_,#duration(1, 0, 0, 0))
 ))
 
+==== OR ====
+
+List.Generate(
+    () => _ArbitraryStartDate,
+    each _ <= _ArbitraryEndDate,
+    each Date.AddDays(_, 1)
+))
