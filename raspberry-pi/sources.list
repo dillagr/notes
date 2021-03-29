@@ -3,6 +3,6 @@
 #deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free
 #deb-src http://archive.raspbian.org/raspbian/ buster main contrib non-free
 
-## ust the JAIST, mirror
+## use the JAIST, mirror
 deb http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free
 deb-src http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free
