@@ -1,0 +1,7 @@
+## next 2 lines are original
+#deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free
+#deb-src http://archive.raspbian.org/raspbian/ buster main contrib non-free
+
+## ust the JAIST, mirror
+deb http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free
+deb-src http://ftp.jaist.ac.jp/raspbian/ buster main contrib non-free
