@@ -1,9 +1,15 @@
-// Fixed Start and End
-_ArbitraryStartDate = #date(Date.Year(Date.AddYears(DateTime.LocalNow(), -1)), 9, 1)
-_ArbitraryEndDate = Date.From(Date.StartOfMonth(Date.AddMonths(DateTime.LocalNow(),-1)))
-
-
 // Moving Start and End, based on current date (good for MAT)
 _ArbitraryStartDate = Date.From(Date.StartOfMonth(DateTime.LocalNow()))
 _ArbitraryEndDate = Date.AddMonths(_ArbitraryStartDate, -12)
 
+-----
+
+// based on a fixed start date (e.g. Sept of every year)
+
+// ArbitraryStartDate --> September of every year
+_ArbitraryStartDate = if Date.Month(DateTime.LocalNow()) < 9 
+    then #date(Date.Year(DateTime.LocalNow()) -1, 9, 1)
+    else #date(Date.Year(DateTime.LocalNow()), 9, 1),
+
+//   ArbitraryEndDate --> Last month
+_ArbitraryEndDate = Date.From(Date.StartOfMonth(Date.AddMonths(DateTime.LocalNow(),-1))),
