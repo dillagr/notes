@@ -18,6 +18,7 @@ Configure the system to default to tcp_bbr:
    ```
    sudo wget -O /etc/sysctl.d/99-tcp-bbr.conf \
    https://github.com/dillagr/notes/raw/master/tcp-bbr/99-tcp-bbr.conf
+   sudo sysctl -p /etc/sysctl.d/99-tcp-bbr.conf
    ```
 
 This change requires a reboot (unless the kernel required has been installed already). After reboot, execute the command(s) below to see that **bbr** is the congestion control algorithm used. The algorithm **bbr** needs to be working in tandem with **fq**
