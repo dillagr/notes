@@ -4,6 +4,7 @@ Looks like GPO (Group Policy Objects) DSCP mark policies for Zoom does not work 
 
 So here's a procure on how to do it for Zoom (Teams and Viber, included).
 
+
 ## _Setup and Confiuration_
 
 Execute this on a privileged PowerShell terminal:
@@ -17,6 +18,11 @@ Create the scheduled job:
 <code>Register-ScheduledJob -Trigger $trigger -FilePath C:\PATH\TO\DSCP.ps1 -Name QoS</code>
 
 Feel free to change "QoS" to a name that is easy to recall or meaningful.
+
+To verify the created scheduled job:
+
+<code>Get-ScheduledJob</code>
+
 
 ## _Related Information_
 
