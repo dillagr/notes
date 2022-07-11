@@ -8,6 +8,7 @@
 
 ## re-read aliases
 shell -$SHELL
+deflogin off
 
 ## status on last line
 hardstatus alwayslastline
