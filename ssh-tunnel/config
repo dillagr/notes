@@ -1,0 +1,7 @@
+## SSH-TUNNEL
+## - WINBOX
+## - sudo ufw allow from CIDR/BLOCK to any port 8192/tcp
+Host r00
+    Hostname localhost
+    Port 2222
+    LocalForward 0.0.0.0:8291 10.63.99.1:8291
