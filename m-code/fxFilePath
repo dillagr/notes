@@ -1,0 +1,12 @@
+(ParameterKey as text) =>
+
+let
+    ParamSource = Excel.CurrentWorkbook(){[Name="TPARAMS"]}[Content],
+    #"Changed Type" = Table.TransformColumnTypes(ParamSource,{{"Parameter", type text}, {"Value", type text}}),
+    ParameterValue = Table.SelectRows(#"Changed Type", each ([Parameter] = ParameterKey)),
+    Value=if Table.IsEmpty(ParameterValue)=true then null
+        else Record.Field(ParameterValue{0},"Value")
+
+in
+    Value
+   
