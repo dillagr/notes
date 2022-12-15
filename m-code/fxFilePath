@@ -1,3 +1,6 @@
+// Usage: _FolderPath = fxFILEPATH("PATH")
+//    (defined in table "TPARAMS")
+
 (ParameterKey as text) =>
 
 let
