@@ -1,0 +1,17 @@
+{
+  "Sid": "PolicyForAllowUploadWithACL",
+  "Effect": "Allow",
+  "Principal": {
+      "AWS": [
+        "arn:aws:iam::123456789101:user/put-user-principal-here",
+        "arn:aws:iam::123456789101:role/put-role-principal-here"
+      ],
+  },
+  "Action": "s3:PutObject",
+  "Resource": "arn:aws:s3:::your-bucket-name-here/*",
+  "Condition": {
+      "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control"
+      }
+  }
+}
