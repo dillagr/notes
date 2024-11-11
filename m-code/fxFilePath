@@ -1,5 +1,8 @@
 // Usage: _FolderPath = fxFILEPATH("PATH")
 //    (defined in table "TPARAMS")
+//
+// NOTES: Column Names : ['Parameter', 'Value']
+//        Table Name : 'TPARAMS'
 
 (ParameterKey as text) =>
 
