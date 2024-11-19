@@ -14,11 +14,19 @@ Replace the parameters with your own.
 
 -----
 
+Set the environment variables.
+
 ```
 export LOG_GROUP_NAME="/aws/lambda/your-lambda-function-name"
 export FILTER_PATTERN="some-string-to-search-for"
 export START_TIME=$(date -d "-2 days" +%s%3N)
+```
 
+-----
+
+Run the cli with variables as arguments.
+
+```
 aws logs filter-log-events \
   --log-group-name ${LOG_GROUP_NAME}
   --filter-pattern ${FILTER_PATTERN}
