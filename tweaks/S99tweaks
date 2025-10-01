@@ -1,0 +1,60 @@
+#!/opt/bin/env bash
+
+## NOTE: copy this file to /opt/etc/init.d
+## cp S99-boot-mods /opt/etc/init.d/S99-boot-mods
+
+## PATH
+PATH=/opt/bin:/opt/sbin:$PATH
+
+## telegram-send
+MESSAGE="INFO: Reboot message from $(hostname).."
+telegram-send "$MESSAGE"
+
+## SOMAXCONN
+sysctl -w net.core.somaxconn=65536
+sysctl -w net.ipv4.tcp_max_syn_backlog=8192
+sysctl -w net.core.netdev_max_backlog=65536
+sysctl -w net.ipv4.tcp_fastopen=3
+sysctl -w net.ipv4.tcp_fin_timeout=10
+sysctl -w net.ipv4.route.gc_timeout=100
+sysctl -w net.ipv4.conf.lo.rp_filter=0
+sysctl -w net.ipv4.conf.all.rp_filter=0
+
+## INCREASE BUFFERS
+sysctl -w net.core.rmem_max=16777216
+sysctl -w net.core.wmem_max=16777216
+sysctl -w net.core.rmem_default=4194304
+sysctl -w net.core.wmem_default=4194304
+sysctl -w net.core.optmem_max=25165824
+sysctl -w sunrpc.tcp_slot_table_entries=128
+sysctl -w sunrpc.udp_slot_table_entries=128
+
+## FOR DNS (unbound)
+sysctl -w net.ipv4.udp_mem="65536 131072 262144"  # Adjust UDP memory thresholds
+sysctl -w net.ipv4.udp_rmem_min=16384  # Minimum receive buffer size
+sysctl -w net.ipv4.udp_wmem_min=16384  # Minimum send buffer size
+
+## DISABLE TCP TIMESTAMPS
+sysctl -w net.ipv4.tcp_timestamps=1
+
+## CONGESTION CONTROL
+sysctl -w net.ipv4.tcp_congestion_control=bbr
+sysctl -w fs.nfs.nfs_congestion_kb=65536
+
+## PORTS
+sysctl -w net.ipv4.ip_local_port_range="1024 65535"
+sysctl -w net.ipv4.tcp_syn_retries=2
+sysctl -w net.ipv4.tcp_synack_retries=2
+
+## disable THP
+[ -f /sys/kernel/mm/transparent_hugepage/enabled ] && echo never > /sys/kernel/mm/transparent_hugepage/enabled
+[ -f /proc/sys/vm/overcommit_memory ] && echo 1 > /proc/sys/vm/overcommit_memory
+[ -f /proc/sys/vm/swappiness ] && echo 1 > /proc/sys/vm/swappiness
+
+## TXQUEUELEN
+ifconfig eth0 txqueuelen 2048
+
+## UNBOUND, REDIS, etc
+[ -f /opt/var/run/unbound.pid ] && renice -5 $(cat /opt/var/run/unbound.pid)
+[ -f /opt/var/run/redis_6379.pid ] && renice -5 $(cat /opt/var/run/redis_6379.pid)
+
