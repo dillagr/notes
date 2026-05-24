@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# This file must be executable to work! chmod 755!
+
+# Look at what a filer is exporting to determine what we can mount.
+# This is very simple, but it appears to work surprisingly well
+
+key="$1"
+
+# add "nosymlink" here if you want to suppress symlinking local filesystems
+# add "nonstrict" to make it OK for some filesystems to not mount
+opts="-fstype=nfs,hard,intr,nodev,nonstrict"
+
+for SHOWMOUNT in /{,usr/}{,s}bin/showmount
+do
+        if [ -x $SHOWMOUNT ]
+        then
+                break
+        fi
+done
+
+[ -x $SHOWMOUNT ] || exit 1
+
+#SHOWMOUNT="/sbin/showmount --no-headers -e $key"
+
+#$SHOWMOUNT | LC_ALL=C sort -k 1 | \
+$SHOWMOUNT --no-headers -e $key | awk '{print $1}' | awk -F\/ '{print $3}' | sort -u | \
+        awk -v key="$key" -v opts="$opts" -- '
+        BEGIN   { ORS=""; first=1 }
+                { if (first) { print opts; first=0 }; print " \\\n\t/" $1, key ":/vol/" $1 }
+        END     { if (!first) print "\n"; else exit 1 }
+        ' | sed 's/#/\\#/g'
